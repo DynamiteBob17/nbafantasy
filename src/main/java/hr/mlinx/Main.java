@@ -21,8 +21,16 @@ public class Main {
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
             System.err.println("Something went wrong");
+            System.exit(1);
         } catch (Exception e) {
             System.err.println(e.getClass().getSimpleName() + ": " + e.getLocalizedMessage());
+            System.exit(1);
         }
+
+        System.exit(0);
+
+        // the System.exit uses are for the exec:java goal to shut down the JVM and clean up,
+        // since exec:java gives a warning that some threads didn't finish despite being asked to
+        // via interruption after waiting for ~15s
     }
 }

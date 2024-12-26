@@ -66,7 +66,7 @@ public class PlayerStatsWebScraper {
 
         // sometimes a filter value was not found, and sometimes it was no problem,
         // not sure why though, even with the use of WebDriverWait, so waiting manually a little helps...
-        // also: for some slower PCs or browsers this might not be enough
+        // also, for some slower PCs or browsers, this might not be enough
         Thread.sleep(1000);
 
         WebElement filterSelectElement = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("filter")));
