@@ -3,7 +3,7 @@
 
 # How to use
 If you have [Java 21](https://www.oracle.com/java/technologies/javase/jdk21-archive-downloads.html) and up installed you can:
-- download the .jar executable from the release  
+- download the .jar executable from the release, `java -jar <path_to_jar>` to run
   **OR**
 - compile and run the repository as a Maven project with your method of choice.
 
