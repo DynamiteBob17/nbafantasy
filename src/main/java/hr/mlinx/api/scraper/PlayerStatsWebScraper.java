@@ -1,9 +1,8 @@
-package hr.mlinx.web;
+package hr.mlinx.api.scraper;
 
-import hr.mlinx.data.CourtType;
-import hr.mlinx.exception.CookieDismissalException;
-import hr.mlinx.io.output.PleaseWaitOutput;
-import hr.mlinx.web.factory.WebDriverFactory;
+import hr.mlinx.api.data.CourtType;
+import hr.mlinx.api.exception.CookieDismissalException;
+import hr.mlinx.api.scraper.factory.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -15,9 +14,9 @@ import java.time.Duration;
 import java.util.*;
 
 public class PlayerStatsWebScraper {
-    private final WebDriver driver;
-    private final WebDriverWait wait;
-    private boolean cookieDismissed = false;
+    private WebDriver driver;
+    private WebDriverWait wait;
+    private boolean cookieDismissed;
 
     private static final Map<CourtType, String> FILTER_VALUES = new EnumMap<>(CourtType.class);
     private static final Map<String, String> FILTER_SELECTORS = new HashMap<>();
@@ -31,10 +30,13 @@ public class PlayerStatsWebScraper {
     }
 
     public PlayerStatsWebScraper() {
-        PleaseWaitOutput.waitFor("initializing", this.getClass().getSimpleName());
-        System.out.println("Return to the program when data collection stops...");
+        initializeWebDriver();
+    }
+
+    private void initializeWebDriver() {
         driver = WebDriverFactory.getChromeDriver();
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        cookieDismissed = false;
     }
 
     private void dismissCookiePopup() throws CookieDismissalException {
@@ -44,7 +46,7 @@ public class PlayerStatsWebScraper {
             WebElement dismissButton = wait.until(ExpectedConditions.elementToBeClickable(By.id("onetrust-reject-all-handler")));
             dismissButton.click();
 
-            System.out.println("Cookie popup dismissed successfully");
+
             cookieDismissed = true;
         } catch (Exception e) {
             throw new CookieDismissalException(e);
@@ -52,7 +54,6 @@ public class PlayerStatsWebScraper {
     }
 
     public List<String> scrapeContents(CourtType courtType) throws CookieDismissalException, InterruptedException {
-        PleaseWaitOutput.waitFor("scraping stats for", courtType.getCourtName());
         String filterValue = FILTER_VALUES.get(courtType);
         if (filterValue == null) throw new IllegalArgumentException(courtType + " court type does not exist");
 
@@ -97,8 +98,14 @@ public class PlayerStatsWebScraper {
         return contents;
     }
 
+    public void reset() {
+        quit();
+        initializeWebDriver();
+    }
+
     public void quit() {
-        driver.quit();
+        if (driver != null) {
+            driver.quit();
+        }
     }
 }
-
