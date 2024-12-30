@@ -16,8 +16,6 @@ n
 >api/src/main/java/hr/mlinx/api/exception/ParsingException.java,f\3\f3de5306830d80e19afc76062b16ee9ca5123ee3
 f
 6api/src/main/java/hr/mlinx/api/cache/CacheEvictor.java,6\5\6527d9d0d430624e91ea92470184e929a982048a
-f
-6api/src/main/java/hr/mlinx/api/config/CacheConfig.java,2\f\2fb49587ee2d6f57947c9c077c637c89328971a8
 p
 @api/src/main/java/hr/mlinx/api/controller/ScraperController.java,5\a\5a09fee8e2d6d0a6a2b0f2b9b2ab959bf8d39322
 b
@@ -30,8 +28,6 @@ t
 Dapi/src/main/java/hr/mlinx/api/scraper/factory/WebDriverFactory.java,7\1\71bd13bb520d32e3b9503de653346f3a91ead89b
 q
 Aapi/src/main/java/hr/mlinx/api/scraper/PlayerStatsWebScraper.java,5\f\5f12e8f6bdc6d801a0288a39090266b42755d849
-q
-Aapi/src/main/java/hr/mlinx/api/service/CachingScraperService.java,f\4\f4bb6aaf7d8184022fd95bdecd89d08a9d4034bc
 i
 9api/src/main/java/hr/mlinx/api/service/PlayerService.java,f\7\f7e3ebf2ea9527fc11fb0f1e678fd4fe2eb96b11
 m
