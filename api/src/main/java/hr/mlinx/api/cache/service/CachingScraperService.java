@@ -1,4 +1,4 @@
-package hr.mlinx.api.service;
+package hr.mlinx.api.cache.service;
 
 import hr.mlinx.api.data.CourtType;
 import hr.mlinx.api.exception.CookieDismissalException;

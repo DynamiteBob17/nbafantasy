@@ -1,6 +1,6 @@
 package hr.mlinx.api.filter;
 
-import hr.mlinx.api.service.CachingScraperService;
+import hr.mlinx.api.cache.service.CachingScraperService;
 import jakarta.servlet.*;
 import org.springframework.stereotype.Component;
 

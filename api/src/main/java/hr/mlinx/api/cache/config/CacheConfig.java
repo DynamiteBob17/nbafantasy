@@ -1,4 +1,4 @@
-package hr.mlinx.api.config;
+package hr.mlinx.api.cache.config;
 
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.concurrent.ConcurrentMapCacheManager;

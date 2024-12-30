@@ -1,5 +1,6 @@
 package hr.mlinx.api.service;
 
+import hr.mlinx.api.cache.service.CachingScraperService;
 import hr.mlinx.api.data.CourtType;
 import hr.mlinx.api.data.parser.StatsParser;
 import hr.mlinx.api.exception.CookieDismissalException;

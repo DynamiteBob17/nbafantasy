@@ -98,3 +98,5 @@ t
 Dcore/src/main/java/hr/mlinx/core/processor/CombinationProcessor.java,3\7\37a5a5e62cb44fda428f5d2a3116dcc760e929cb
 i
 9core/src/main/java/hr/mlinx/core/io/file/FileHandler.java,d\3\d3345a274a477f055627740ac45737bf8cbbf277
+w
+Gapi/src/main/java/hr/mlinx/api/cache/service/CachingScraperService.java,4\3\43e97a4f62c84cfdaf2f08453a97b9801c0c88a5
