@@ -3,18 +3,14 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 
-backcourt.json
-backcourt.txt
-frontcourt.json
-frontcourt.txt
-*.csv
+/core/*.json
+/core/*.csv
 
 ### IntelliJ IDEA ###
 .idea/modules.xml
 .idea/jarRepositories.xml
 .idea/compiler.xml
 .idea/libraries/
-.idea
 *.iws
 *.iml
 *.ipr
