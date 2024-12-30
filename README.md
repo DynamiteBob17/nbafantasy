@@ -1,4 +1,4 @@
-# TODO:
+# TODO
 - modify dockerfile based on new project structure
 - change player stats cache invalidation
 - implement core app (use either api or local json files)
