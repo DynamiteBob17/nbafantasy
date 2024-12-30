@@ -1,7 +1,7 @@
 # TODO
 - modify dockerfile based on new project structure
 - change player stats cache invalidation
-- implement core app (use either api or local json files)
+- implement core app (allow use of either api or local json files)
 - update readme
 
 # About
