@@ -13,7 +13,7 @@ public class CacheEvictor {
     private static final Logger log = LoggerFactory.getLogger(CacheEvictor.class);
 
     @CacheEvict(value = "playerStats", allEntries = true)
-    @Scheduled(cron = "0 0 0 * * ?") // runs daily at midnight
+    @Scheduled(cron = "0 0 9 * * ?", zone = "PST") // runs daily at 9 AM PST
     public void clearCache() {
         log.info("Cleared cache!");
     }

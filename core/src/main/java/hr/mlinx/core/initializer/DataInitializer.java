@@ -2,22 +2,29 @@ package hr.mlinx.core.initializer;
 
 import hr.mlinx.core.data.CourtType;
 import hr.mlinx.core.data.Player;
+import hr.mlinx.core.data.json.JsonPlayerExtractor;
+import hr.mlinx.core.exception.HttpRequestFailedException;
+import hr.mlinx.core.exception.JsonPlayerExtractionException;
 import hr.mlinx.core.io.file.FileFormatType;
 import hr.mlinx.core.io.file.FileHandler;
 import hr.mlinx.core.io.input.UserInputHandler;
+import hr.mlinx.core.io.output.PleaseWaitOutput;
+import hr.mlinx.core.request.ApiClient;
+import hr.mlinx.core.request.QueryParam;
+import hr.mlinx.core.request.factory.ApiClientFactory;
 import org.json.JSONObject;
 
 import java.io.IOException;
 import java.util.List;
 
-public class DataInitializer /*implements AutoCloseable*/ {
-/*    private final boolean willProvideJson;
-    private final PlayerStatsWebScraper scraper;
+public class DataInitializer {
+    private final boolean willProvideJson;
+    private final ApiClient apiClient;
 
     public static final String MOST_USED_PLAYER_KEY = "fantasyPpg";
     private static final String[] KEYS_ARRAY = new String[]{"name", "team", "salary", "form", "totalPoints", MOST_USED_PLAYER_KEY};
 
-    public DataInitializer() {
+    public DataInitializer() throws IOException {
         UserInputHandler userInputHandler = new UserInputHandler();
         String willProvideJsonInput = userInputHandler.takeInput(
                 "Are you providing your own JSON files (%s and %s) (y/N)".formatted(
@@ -28,33 +35,24 @@ public class DataInitializer /*implements AutoCloseable*/ {
         );
         this.willProvideJson = willProvideJsonInput.equalsIgnoreCase("y") ||
                 willProvideJsonInput.equalsIgnoreCase("yes");
-
-        this.scraper = willProvideJson ? null : new PlayerStatsWebScraper();
+        this.apiClient = ApiClientFactory.createApiClientFromProperties();
     }
 
-    public List<Player> loadPlayers(CourtType courtType) throws ParsingException, IOException, CookieDismissalException, InterruptedException {
+    public List<Player> loadPlayers(CourtType courtType) throws IOException, JsonPlayerExtractionException, HttpRequestFailedException {
         String filenameJson = courtType.getCourtName() + FileFormatType.JSON.getFileExtension();
+        JSONObject courtJson;
 
         if (willProvideJson) {
+            PleaseWaitOutput.waitFor("reading file", filenameJson);
             String jsonContent = FileHandler.readFile(filenameJson);
-            JSONObject courtJson = new JSONObject(jsonContent);
-            return PlayerParser.getPlayersFromJson(courtJson, KEYS_ARRAY, true, courtType);
+            courtJson = new JSONObject(jsonContent);
         } else {
-            List<String> courtContents = scraper.scrapeContents(courtType);
-            List<String> lines = String.join("\n", courtContents).lines().toList();
-            JSONObject courtJson = PlayerParser.getPlayersJsonFromLines(lines, KEYS_ARRAY);
-
+            PleaseWaitOutput.waitFor("fetching stats for", courtType.getCourtName());
+            courtJson = apiClient.get("/api/scraper/stats", new QueryParam<>("courtType", courtType));
             FileHandler.writeFile(filenameJson, courtJson.toString(4));
             System.out.println("Players written to " + filenameJson);
-
-            return PlayerParser.getPlayersFromJson(courtJson, KEYS_ARRAY, true, courtType);
         }
+
+        return JsonPlayerExtractor.getPlayersFromJson(courtJson, KEYS_ARRAY, true, courtType);
     }
-
-    @Override
-    public void close() {
-        if (scraper != null) {
-            scraper.quit();
-        }
-    }*/
 }

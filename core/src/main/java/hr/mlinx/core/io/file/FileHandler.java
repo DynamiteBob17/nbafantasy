@@ -15,6 +15,7 @@ public class FileHandler {
         return Files.readString(path);
     }
 
+    @SuppressWarnings("unused")
     public static List<String> readAllLines(String filePath) throws IOException {
         Path path = Paths.get(filePath);
         return Files.readAllLines(path);

@@ -22,6 +22,6 @@ public class PlayerServiceImpl implements PlayerService {
     public JSONObject getPlayers(CourtType courtType) throws ParsingException, CookieDismissalException, InterruptedException {
         List<String> courtContents = cachingScraperService.scrapeContents(courtType);
         List<String> lines = String.join("\n", courtContents).lines().toList();
-        return StatsParser.getPlayersJsonFromLines(lines, new String[]{"name", "team", "salary", "form", "totalPoints", "fppg"});
+        return StatsParser.getPlayersJsonFromLines(lines, new String[]{"name", "team", "salary", "form", "totalPoints", "fantasyPpg"});
     }
 }

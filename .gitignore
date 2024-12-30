@@ -3,8 +3,8 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 
-/core/*.json
-/core/*.csv
+*.json
+*.csv
 
 ### IntelliJ IDEA ###
 .idea/modules.xml
