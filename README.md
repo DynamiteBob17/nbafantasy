@@ -8,3 +8,9 @@ If you have [Java 21](https://www.oracle.com/java/technologies/javase/jdk21-arch
 - compile and run the repository as a Maven project with your method of choice.
 
 `mvn clean compile exec:java` to run from a command.
+
+# TODO:
+- modify dockerfile based on new project structure
+- change player stats cache invalidation
+- implement core app (use either api or local json files)
+- update readme
