@@ -11,11 +11,13 @@
 (*on Windows use you might have to use `./mvnw.cmd` instead of `./mvnw`)
 1. start the web scraper server:
     ### *Without* Docker
-    - either with `./mvnw spring-boot:run -pl api` ***OR***
-    - `./mvnw clean package -pl api` and then `java -jar ./api/target/nbafantasy-api.jar`
+    - either with `./mvnw spring-boot:run -pl api`,
+    - `./mvnw clean package -pl api` and then `java -jar ./api/target/nbafantasy-api.jar` ***OR***
+    - download .JAR file from the release and run them with the `java -jar <file-path>` command
     ### *With* Docker
    - `docker build -t <docker-image-name> .`, then `docker run --name <app-name> -p 8080:8080 <docker-image-name>`
    
 2. start the main program (in new shell/cmd if necessary):
-   - either with `./mvnw clean compile exec:java -pl core` ***OR***
-   - `./mvnw clean package -pl core` and then `java -jar ./api/target/nbafantasy-core.jar`
+   - either with `./mvnw clean compile exec:java -pl core`,
+   - `./mvnw clean package -pl core` and then `java -jar ./api/target/nbafantasy-core.jar` ***OR***
+   - download .JAR file from the release and run them with the `java -jar <file-path>` command
