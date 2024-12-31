@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/4d756045-777e-4968-9567-218c7abb88d7)# About
+# About
 - finds the best combination of players for the NBA fantasy league based on statistics
 - also has an api setup that can fetch statistics for players in a JSON format by scraping the [stats](https://nbafantasy.nba.com/statistics) webpage, since there is currently no way to easily fetch those statistics
 
