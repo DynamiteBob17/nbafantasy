@@ -1,5 +1,6 @@
 # About
 - finds the best combination of players for the NBA fantasy league based on statistics
+- also has an api setup that can fetch statistics for players in a JSON format by scraping the stats webpage, since there is currently no way to easily fetch those statistics
 
 # How to use
 ## Prerequisites
@@ -7,7 +8,7 @@
 - for now, latest version of **Google Chrome** (recommended, otherwise using *Docker* is required)
 
 ## Running the project
-(*on Windows use `.\mvnw.cmd` instead of `./mvnw`, and `\` instead of `/`*)
+(*on Windows use you might have to use `./mvnw.cmd` instead of `./mvnw`)
 1. start the web scraper server:
     ### *Without* Docker
     - either with `./mvnw spring-boot:run -pl api` ***OR***
