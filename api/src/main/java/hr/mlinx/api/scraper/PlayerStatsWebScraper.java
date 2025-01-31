@@ -34,7 +34,7 @@ public class PlayerStatsWebScraper {
     }
 
     private void initializeWebDriver() {
-        driver = WebDriverFactory.getChromeDriver();
+        driver = WebDriverFactory.getEdgeDriver();
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         cookieDismissed = false;
     }
@@ -45,7 +45,6 @@ public class PlayerStatsWebScraper {
         try {
             WebElement dismissButton = wait.until(ExpectedConditions.elementToBeClickable(By.id("onetrust-reject-all-handler")));
             dismissButton.click();
-
 
             cookieDismissed = true;
         } catch (Exception e) {
@@ -94,7 +93,6 @@ public class PlayerStatsWebScraper {
             nextButton.click();
             wait.until(ExpectedConditions.presenceOfElementLocated(By.tagName("table")));
         }
-
         return contents;
     }
 

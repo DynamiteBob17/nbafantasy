@@ -34,12 +34,6 @@ public class StatsParser {
                 continue;
             }
 
-            if (dataIndex > 2) {
-                players.put(player);
-                player = new JSONObject();
-                dataIndex = 0;
-            }
-
             switch (dataIndex) {
                 case 0 -> player.put(keys[0], line);
                 case 1 -> player.put(keys[1], line);
@@ -58,7 +52,7 @@ public class StatsParser {
                         // but has a team, so his team and stats are picked up as case 0 and 1,
                         // and then the name of the following player is picked up in case 2
                         // which we check for here
-                        if (line.matches(".*[a-zA-Z].*")) { // stats shouldn't contain any letter
+                        if (line.matches(".*[a-zA-Z].*")) { // stats shouldn't contain letters
                             player = new JSONObject();
                             player.put(keys[0], line);
                             dataIndex = 1;
@@ -72,6 +66,12 @@ public class StatsParser {
             }
 
             ++dataIndex;
+
+            if (dataIndex > 2) {
+                players.put(player);
+                player = new JSONObject();
+                dataIndex = 0;
+            }
         }
 
         json.put("players", players);

@@ -10,8 +10,10 @@ target/
 .idea/modules.xml
 .idea/jarRepositories.xml
 .idea/uiDesigner.xml
+.idea/httpRequests/
 .idea/libraries/
 .idea/
+/api/*.iml
 *.iws
 *.iml
 *.ipr

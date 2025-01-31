@@ -44,17 +44,37 @@
             <dependency>
                 <groupId>org.seleniumhq.selenium</groupId>
                 <artifactId>selenium-chrome-driver</artifactId>
-                <version>[4.27.0,)</version>
+                <version>[4.28.0,)</version>
             </dependency>
             <dependency>
                 <groupId>org.seleniumhq.selenium</groupId>
-                <artifactId>selenium-devtools-v131</artifactId>
-                <version>[4.27.0,)</version>
+                <artifactId>selenium-chromium-driver</artifactId>
+                <version>[4.28.0,)</version>
+            </dependency>
+            <dependency>
+                <groupId>org.seleniumhq.selenium</groupId>
+                <artifactId>selenium-edge-driver</artifactId>
+                <version>[4.28.0,)</version>
+            </dependency>
+            <dependency>
+                <groupId>org.seleniumhq.selenium</groupId>
+                <artifactId>selenium-firefox-driver</artifactId>
+                <version>[4.28.0,)</version>
+            </dependency>
+            <dependency>
+                <groupId>org.seleniumhq.selenium</groupId>
+                <artifactId>selenium-safari-driver</artifactId>
+                <version>[4.28.0,)</version>
+            </dependency>
+            <dependency>
+                <groupId>org.seleniumhq.selenium</groupId>
+                <artifactId>selenium-devtools-v132</artifactId>
+                <version>[4.28.0,)</version>
             </dependency>
             <dependency>
                 <groupId>org.seleniumhq.selenium</groupId>
                 <artifactId>selenium-java</artifactId>
-                <version>[4.27.0,)</version>
+                <version>[4.28.0,)</version>
             </dependency>
             <dependency>
                 <groupId>org.springframework.boot</groupId>
