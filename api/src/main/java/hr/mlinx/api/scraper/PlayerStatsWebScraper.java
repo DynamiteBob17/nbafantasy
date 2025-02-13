@@ -34,7 +34,7 @@ public class PlayerStatsWebScraper {
     }
 
     private void initializeWebDriver() {
-        driver = WebDriverFactory.getEdgeDriver();
+        driver = WebDriverFactory.getChromeDriver();
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         cookieDismissed = false;
     }
